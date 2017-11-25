@@ -4,3 +4,6 @@ import App from './components/App';
 
 let appContainer = document.getElementById('app');
 render(<App />, appContainer);
+if (module.hot) {
+  module.hot.accept();
+}
