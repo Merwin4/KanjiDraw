@@ -1,11 +1,25 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import SignupForm from './SignupForm';
+import { userSignupRequest } from '../../actions/signupActions';
 
-class SignUpPage extends Component {
+
+class SignupPage extends Component {
   render() {
+    const { userSignupRequest } = this.props;
     return (
-      <p>Hello. This is the signup page!</p>
+      <div className="row">
+        <div className="col-md-4 col-md-offset-4">
+          <SignupForm userSignupRequest={userSignupRequest} />
+        </div>
+      </div>
     );
   }
 }
 
-export default SignUpPage;
+SignupPage.propTypes = {
+  userSignupRequest: PropTypes.func.isRequired
+}
+
+export default connect(null, { userSignupRequest } )(SignupPage);

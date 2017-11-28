@@ -1,20 +1,30 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter as Router, Route, browserHistory } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
+import { createStore, applyMiddleware } from 'redux';
 
 import App from './components/App';
 import Greetings from './components/hello';
-import SignUpPage from './components/signup/signup'
+import SignupPage from './components/signup/signup'
 
 let appContainer = document.getElementById('app');
+const store = createStore(
+  (state = {}) => state,
+  applyMiddleware(thunk)
+);
+
 render((
-  <Router>
-    <div>
-      <Route path="/" component={App}/>
-      <Route exact path="/" component={Greetings} />
-      <Route path="/signup" component={SignUpPage}/>
-    </div>
-  </Router>
+  <Provider store={store}>
+    <Router>
+      <div>
+        <Route path="/" component={App}/>
+        <Route exact path="/" component={Greetings} />
+        <Route path="/signup" component={SignupPage}/>
+      </div>
+    </Router>
+  </Provider>
   ), appContainer);
 if (module.hot) {
   module.hot.accept();
