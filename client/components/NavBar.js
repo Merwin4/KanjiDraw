@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
+
+// TODO Make the link flag between debug and live app version
 
 class NavBar extends Component {
   render() {
@@ -7,16 +10,16 @@ class NavBar extends Component {
       <nav className="navbar navbar-inverse">
         <div className="container-fluid">
           <div className="navbar-header">
-            <a className="navbar-brand" href="#">WebSiteName</a>
+            <span className="navbar-brand"><Link to="/">Kanji Draw</Link></span>
           </div>
           <ul className="nav navbar-nav">
-            <li className="active"><a href="#">Home</a></li>
-            <li><a href="#">Page 1</a></li>
-            <li><a href="#">Page 2</a></li>
+            <li className="active"><Link to="/">Home</Link></li>
+            <li><Link to="/practice">Practice</Link></li>
+            <li><Link to="/profile">Profile</Link></li>
           </ul>
           <ul className="nav navbar-nav navbar-right">
-            <li><a href="#"><span className="glyphicon glyphicon-user"></span> Sign Up</a></li>
-            <li><a href="#"><span className="glyphicon glyphicon-log-in"></span> Login</a></li>
+            <li><Link to="/signup"><span className="glyphicon glyphicon-user"></span> Sign Up</Link></li>
+            <li><Link to="/login"><span className="glyphicon glyphicon-log-in"></span> Login</Link></li>
           </ul>
         </div>
       </nav>

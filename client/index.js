@@ -8,6 +8,7 @@ import { createStore, applyMiddleware } from 'redux';
 import App from './components/App';
 import Greetings from './components/hello';
 import SignupPage from './components/signup/signup'
+import PracticePage from './components/practice/practice';
 
 let appContainer = document.getElementById('app');
 const store = createStore(
@@ -22,6 +23,7 @@ render((
         <Route path="/" component={App}/>
         <Route exact path="/" component={Greetings} />
         <Route path="/signup" component={SignupPage}/>
+        <Route path="/practice" component={PracticePage} />
       </div>
     </Router>
   </Provider>
